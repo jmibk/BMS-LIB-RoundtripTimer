@@ -1,18 +1,14 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#include "round_timer.h"
+RoundTimer roundtrip = RoundTimer();
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
-}
+  Serial.begin(115200);
+  }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+  uint16_t time = roundtrip.get_roundtrip_reset();
+  Serial.println(time);
+  delay(1000);
+  }
